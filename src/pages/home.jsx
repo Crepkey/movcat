@@ -24,7 +24,11 @@ export default class Home extends Component {
   };
 
   handleClone = movie => {
-    const movies = [movie, ...this.state.movies];
+    const clonedMovie = Object.assign({}, movie);
+    clonedMovie._id += "_clone";
+    const movies = [...this.state.movies];
+    const index = movies.indexOf(movie);
+    movies.splice(index, 0, clonedMovie);
     this.setState({ movies });
   };
 
