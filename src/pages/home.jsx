@@ -23,6 +23,11 @@ export default class Home extends Component {
     this.setState({ movies });
   };
 
+  handleClone = movie => {
+    const movies = [movie, ...this.state.movies];
+    this.setState({ movies });
+  };
+
   render() {
     return (
       <FlexContainer>
@@ -31,6 +36,7 @@ export default class Home extends Component {
             key={movie._id}
             movie={movie}
             onDelete={this.handleDelete}
+            onClone={this.handleClone}
           />
         ))}
       </FlexContainer>

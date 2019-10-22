@@ -28,6 +28,7 @@ export default class MovieBox extends Component {
         <H1>{this.props.movie.title}</H1>
         <MovieDetails key={this.props.movie._id} details={this.props.movie} />
         <MovieOperations
+          onClone={this.props.onClone}
           onDelete={this.props.onDelete}
           movie={this.props.movie}
         />

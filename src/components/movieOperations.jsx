@@ -29,7 +29,11 @@ export default class MovieOperations extends Component {
       <div>
         <IconContainer>
           <Icon className="fa fa-heart" aria-hidden="true"></Icon>
-          <Icon className="fa fa-clone" aria-hidden="true"></Icon>
+          <Icon
+            className="fa fa-clone"
+            aria-hidden="true"
+            onClick={() => this.props.onClone(this.props.movie)}
+          ></Icon>
           <Icon className="fa fa-pencil-square-o" aria-hidden="true"></Icon>
           <Icon
             className="fa fa-eraser"
