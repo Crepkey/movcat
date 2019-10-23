@@ -2,43 +2,61 @@ import React, { Component } from "react";
 
 export default class EditForm extends Component {
   render() {
+    let { publishDate, _id, numberInStock, dailyRentalRate } = this.props.movie;
+
     return (
       <div>
         <form>
           <div classNameName="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="movieID">Movie ID number</label>
             <input
-              type="email"
+              type="input"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
+              id="movieID"
+              placeholder={_id}
             />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
+            <small id="idHelp" className="form-text text-muted">
+              Just in case modify the movie ID number if you are an asshole
             </small>
           </div>
           <div classNameName="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="numberInStock">Number in stock</label>
             <input
-              type="password"
+              type="input"
               className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
+              id="numberInStock"
+              placeholder={numberInStock}
             />
           </div>
-          <div classNameName="form-group form-check">
+          <div classNameName="form-group">
+            <label for="dailyRentalRate">Daily Rental Rate</label>
             <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
+              type="input"
+              className="form-control"
+              id="dailyRentalRate"
+              placeholder={dailyRentalRate}
             />
-            <label className="form-check-label" for="exampleCheck1">
-              Check me out
+          </div>
+          <div classNameName="form-group">
+            <label for="publishDate">Publish Date</label>
+            <input
+              type="input"
+              className="form-control"
+              id="publishDate"
+              placeholder={
+                publishDate ? publishDate : "There is no publish date"
+              }
+            />
+          </div>
+          <br />
+          <div className="form-group form-check">
+            <input type="checkbox" className="form-check-input" id="favorite" />
+            <label className="form-check-label" for="favorite">
+              Mark as favorite
             </label>
           </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button type="submit" className="btn btn-success">
+            Save
           </button>
         </form>
       </div>
