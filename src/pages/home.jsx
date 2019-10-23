@@ -32,6 +32,10 @@ export default class Home extends Component {
     this.setState({ movies });
   };
 
+  handleEdit = movie => {
+    console.log(movie);
+  };
+
   render() {
     return (
       <FlexContainer>
@@ -41,6 +45,7 @@ export default class Home extends Component {
             movie={movie}
             onDelete={this.handleDelete}
             onClone={this.handleClone}
+            onEdit={this.handleEdit}
           />
         ))}
       </FlexContainer>

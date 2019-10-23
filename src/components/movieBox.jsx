@@ -30,6 +30,7 @@ export default class MovieBox extends Component {
         <MovieOperations
           onClone={this.props.onClone}
           onDelete={this.props.onDelete}
+          onEdit={this.props.onEdit}
           movie={this.props.movie}
         />
       </MovieBoxContainer>

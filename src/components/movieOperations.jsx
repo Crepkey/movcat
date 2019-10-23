@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import EditModal from "./editModal";
 
 const IconContainer = styled.div`
   padding: 10px;
@@ -24,6 +25,15 @@ const Icon = styled.i`
 `;
 
 export default class MovieOperations extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isEditModalShow: false };
+  }
+
+  closeEditModal = () => this.setState({ isEditModalShow: false });
+
+  openEditModal = () => this.setState({ isEditModalShow: true });
+
   render() {
     return (
       <div>
@@ -34,13 +44,22 @@ export default class MovieOperations extends Component {
             aria-hidden="true"
             onClick={() => this.props.onClone(this.props.movie)}
           ></Icon>
-          <Icon className="fa fa-pencil-square-o" aria-hidden="true"></Icon>
+          <Icon
+            className="fa fa-pencil-square-o"
+            aria-hidden="true"
+            onClick={this.openEditModal}
+          ></Icon>
           <Icon
             className="fa fa-eraser"
             aria-hidden="true"
             onClick={() => this.props.onDelete(this.props.movie)}
           ></Icon>
         </IconContainer>
+        <EditModal
+          show={this.state.isEditModalShow}
+          onHide={this.closeEditModal}
+          movie={this.props.movie}
+        />
       </div>
     );
   }
