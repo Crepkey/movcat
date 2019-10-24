@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { Modal, Button, Row, Col, Form } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import EditForm from "./editForm";
 
 export default class EditModal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Modal

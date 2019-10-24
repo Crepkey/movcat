@@ -1,57 +1,73 @@
 import React, { Component } from "react";
 
 export default class EditForm extends Component {
+  state = {
+    movie: this.props.movie
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
+  handleChange = event => {
+    const movie = { ...this.state.movie };
+    movie[event.currentTarget.id] = event.currentTarget.value;
+    this.setState({ movie });
+  };
+
   render() {
-    let { publishDate, _id, numberInStock, dailyRentalRate } = this.props.movie;
+    let { _id, numberInStock, dailyRentalRate, publishDate } = this.state.movie;
 
     return (
       <div>
-        <form>
-          <div classNameName="form-group">
-            <label for="movieID">Movie ID number</label>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="movieID">Movie ID number</label>
             <input
               type="input"
               className="form-control"
-              id="movieID"
-              placeholder={_id}
+              id="_id"
+              value={_id}
+              onChange={this.handleChange}
             />
             <small id="idHelp" className="form-text text-muted">
               Just in case modify the movie ID number if you are an asshole
             </small>
           </div>
-          <div classNameName="form-group">
-            <label for="numberInStock">Number in stock</label>
+          <div className="form-group">
+            <label htmlFor="numberInStock">Number in stock</label>
             <input
               type="input"
               className="form-control"
               id="numberInStock"
-              placeholder={numberInStock}
+              value={numberInStock}
+              onChange={this.handleChange}
             />
           </div>
-          <div classNameName="form-group">
-            <label for="dailyRentalRate">Daily Rental Rate</label>
+          <div className="form-group">
+            <label htmlFor="dailyRentalRate">Daily Rental Rate</label>
             <input
               type="input"
               className="form-control"
               id="dailyRentalRate"
-              placeholder={dailyRentalRate}
+              value={dailyRentalRate}
+              onChange={this.handleChange}
             />
           </div>
-          <div classNameName="form-group">
-            <label for="publishDate">Publish Date</label>
+          <div className="form-group">
+            <label htmlFor="publishDate">Publish Date</label>
             <input
               type="input"
               className="form-control"
               id="publishDate"
-              placeholder={
-                publishDate ? publishDate : "There is no publish date"
-              }
+              value={publishDate ? publishDate : "There is no publish date"}
+              onChange={this.handleChange}
             />
           </div>
           <br />
           <div className="form-group form-check">
             <input type="checkbox" className="form-check-input" id="favorite" />
-            <label className="form-check-label" for="favorite">
+            <label className="form-check-label" htmlFor="favorite">
               Mark as favorite
             </label>
           </div>
