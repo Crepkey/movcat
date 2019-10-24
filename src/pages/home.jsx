@@ -13,6 +13,9 @@ export default class Home extends Component {
     movies: []
   };
 
+  /* THIS IS A SIMPLE TEST FOR MERGE
+  CONFFILCTS CHECKING */
+
   componentDidMount() {
     const movies = Service.getMovies();
     this.setState({ movies });
