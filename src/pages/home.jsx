@@ -13,8 +13,6 @@ export default class Home extends Component {
     movies: []
   };
 
-  /* THIS IS A TEST */
-
   componentDidMount() {
     const movies = Service.getMovies();
     this.setState({ movies });
