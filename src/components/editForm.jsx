@@ -71,7 +71,11 @@ export default class EditForm extends Component {
               Mark as favorite
             </label>
           </div>
-          <button type="submit" className="btn btn-success">
+          <button
+            type="submit"
+            className="btn btn-success"
+            onClick={this.props.onHide}
+          >
             Save
           </button>
         </form>

@@ -18,14 +18,9 @@ export default class EditModal extends Component {
         </Modal.Header>
         <Modal.Body>
           <div className="container">
-            <EditForm movie={this.props.movie} />
+            <EditForm movie={this.props.movie} onHide={this.props.onHide} />
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={this.props.onHide}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     );
   }
