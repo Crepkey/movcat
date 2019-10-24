@@ -13,6 +13,17 @@ export default class Home extends Component {
     movies: []
   };
 
+
+  test() {
+    //this is a test for merge conflict
+
+    // I hope you can handle it
+
+    const test = "TEST"
+
+    // I hope you like this beautyful test
+  }
+
   componentDidMount() {
     const movies = Service.getMovies();
     this.setState({ movies });
