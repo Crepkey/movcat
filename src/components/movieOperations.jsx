@@ -25,12 +25,14 @@ const Icon = styled.i`
 `;
 
 export default class MovieOperations extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isEditModalShow: false };
-  }
+  state = { isEditModalShow: false };
 
-  closeEditModal = () => this.setState({ isEditModalShow: false });
+  closeEditModal = movie => {
+    this.setState({ isEditModalShow: false });
+    if (movie !== undefined) {
+      this.props.onEdit(movie);
+    }
+  };
 
   openEditModal = () => this.setState({ isEditModalShow: true });
 

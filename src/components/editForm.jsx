@@ -74,7 +74,7 @@ export default class EditForm extends Component {
           <button
             type="submit"
             className="btn btn-success"
-            onClick={this.props.onHide}
+            onClick={() => this.props.onHide(this.state.movie)}
           >
             Save
           </button>

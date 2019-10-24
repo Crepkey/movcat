@@ -33,7 +33,10 @@ export default class Home extends Component {
   };
 
   handleEdit = movie => {
-    console.log(movie);
+    const movies = [...this.state.movies];
+    const index = movies.findIndex(mov => mov._id === movie._id);
+    movies[index] = movie;
+    this.setState({ movies });
   };
 
   render() {
